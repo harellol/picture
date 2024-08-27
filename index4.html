@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Background Music</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #1b1b1b;
+            color: #ffffff;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #f39c12;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e67e22;
+        }
+        audio {
+            display: none; /* Hide the audio element */
+        }
+    </style>
+</head>
+<body>
+    <h1>Background Music Control</h1>
+    <button id="playButton">Play Music</button>
+    <button id="pauseButton">Pause Music</button>
+    
+    <!-- Audio element to play background music -->
+    <audio id="backgroundMusic" loop>
+        <source src="Super Mario Bros. Theme Song [ ezmp3.cc ].mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <script>
+        // Get the audio element
+        const audio = document.getElementById('backgroundMusic');
+        
+        // Get buttons
+        const playButton = document.getElementById('playButton');
+        const pauseButton = document.getElementById('pauseButton');
+        
+        // Function to play the audio
+        function playAudio() {
+            audio.play().catch(error => {
+                console.error('Error playing audio:', error);
+            });
+        }
+        
+        // Function to pause the audio
+        function pauseAudio() {
+            audio.pause();
+        }
+        
+        // Add event listeners to buttons
+        playButton.addEventListener('click', playAudio);
+        pauseButton.addEventListener('click', pauseAudio);
+    </script>
+</body>
+</html>
